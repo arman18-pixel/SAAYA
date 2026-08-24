@@ -1,0 +1,846 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">  
+<meta name="theme-color" content="#09060f">  
+<title>SAAYA — ERROR 404</title>  <style>  
+:root{  
+  --bg:#07050b;  
+  --panel:#100b19;  
+  --panel2:#171021;  
+  --purple:#8b5cf6;  
+  --purple2:#b36cff;  
+  --white:#fff;  
+  --muted:#aaa0b8;  
+  --line:#2a2034;  
+  --green:#56e39f;  
+  --amber:#ffc857;  
+  --red:#ff5b78;  
+  --blue:#61a8ff;  
+}  
+  
+*{box-sizing:border-box}  
+  
+body{  
+  margin:0;  
+  background:#000;  
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;  
+  color:var(--white)  
+}  
+  
+.phone{  
+  width:100%;  
+  max-width:430px;  
+  min-height:100vh;  
+  margin:auto;  
+  background:linear-gradient(180deg,#08060d,#0d0813);  
+  position:relative;  
+  overflow:hidden  
+}  
+  
+.status{  
+  height:28px;  
+  padding:7px 16px 0;  
+  font-size:11px;  
+  color:#d8d0df;  
+  display:flex;  
+  justify-content:space-between  
+}  
+  
+.appbar{  
+  padding:12px 18px 10px;  
+  display:flex;  
+  align-items:center;  
+  gap:12px  
+}  
+  
+.brand b{  
+  font-size:20px;  
+  letter-spacing:1.8px  
+}  
+  
+.brand span{  
+  display:block;  
+  color:var(--muted);  
+  font-size:10px;  
+  letter-spacing:1px;  
+  margin-top:2px  
+}  
+  
+.screen{  
+  padding:0 16px 92px  
+}  
+  
+.view{display:none}  
+.view.active{display:block}  
+  
+.card{  
+  background:linear-gradient(180deg,#171020,#100b17);  
+  border:1px solid var(--line);  
+  border-radius:22px;  
+  padding:16px;  
+  margin:12px 0;  
+  box-shadow:0 12px 30px #0005  
+}  
+  
+.hero{  
+  padding:20px;  
+  border-radius:25px;  
+  background:  
+    radial-gradient(circle at 80% 10%,#5d2da455,transparent 45%),  
+    linear-gradient(145deg,#1d1129,#0d0912);  
+  border:1px solid #3b2850  
+}  
+  
+.kicker{  
+  font-size:11px;  
+  text-transform:uppercase;  
+  letter-spacing:1.8px;  
+  color:#b99bff  
+}  
+  
+.hero h1{  
+  font-size:29px;  
+  margin:7px 0  
+}  
+  
+.hero p{  
+  color:#c3b9ca;  
+  font-size:13px;  
+  line-height:1.5;  
+  margin:0  
+}  
+  
+.pill{  
+  display:inline-flex;  
+  align-items:center;  
+  gap:6px;  
+  padding:7px 10px;  
+  border-radius:999px;  
+  font-size:11px;  
+  background:#1f1729;  
+  border:1px solid #3b2b4c;  
+  color:#ddd  
+}  
+  
+.dot{  
+  width:7px;  
+  height:7px;  
+  border-radius:50%;  
+  background:var(--green);  
+  box-shadow:0 0 10px var(--green)  
+}  
+  
+.btn{  
+  width:100%;  
+  border:0;  
+  border-radius:17px;  
+  padding:15px;  
+  font-weight:800;  
+  color:white;  
+  background:linear-gradient(135deg,#7c3aed,#b45cff);  
+  font-size:14px;  
+  box-shadow:0 10px 25px #7c3aed35;  
+  cursor:pointer  
+}  
+  
+.btn.secondary{  
+  background:#1b1324;  
+  border:1px solid #39294a;  
+  box-shadow:none  
+}  
+  
+.btn.danger{  
+  background:linear-gradient(135deg,#d92e55,#ff5b78)  
+}  
+  
+.grid{  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  gap:10px  
+}  
+  
+.metric{  
+  padding:14px;  
+  border-radius:18px;  
+  background:#130e1b;  
+  border:1px solid var(--line)  
+}  
+  
+.metric small{color:var(--muted)}  
+  
+.metric b{  
+  display:block;  
+  margin-top:7px;  
+  font-size:18px  
+}  
+  
+.row{  
+  display:flex;  
+  justify-content:space-between;  
+  gap:12px;  
+  align-items:center  
+}  
+  
+.title{font-weight:800}  
+  
+.muted{  
+  color:var(--muted);  
+  font-size:12px  
+}  
+  
+.tag{  
+  padding:6px 8px;  
+  border-radius:9px;  
+  font-size:10px;  
+  background:#251b31;  
+  color:#d5c8df  
+}  
+  
+.step{  
+  display:flex;  
+  gap:12px;  
+  margin:14px 0  
+}  
+  
+.num{  
+  width:28px;  
+  height:28px;  
+  border-radius:50%;  
+  display:grid;  
+  place-items:center;  
+  background:#27173a;  
+  color:#d8baff;  
+  font-weight:800;  
+  font-size:12px;  
+  flex:none  
+}  
+  
+.step.done .num{  
+  background:#17382c;  
+  color:var(--green)  
+}  
+  
+.step.active .num{  
+  background:#3b1c50;  
+  color:#fff  
+}  
+  
+.progress{  
+  height:8px;  
+  background:#241b2d;  
+  border-radius:99px;  
+  overflow:hidden;  
+  margin:10px 0  
+}  
+  
+.bar{  
+  height:100%;  
+  width:0;  
+  background:linear-gradient(90deg,#7c3aed,#d08aff);  
+  transition:width .8s  
+}  
+  
+.scoreWrap{  
+  display:flex;  
+  align-items:center;  
+  gap:16px  
+}  
+  
+.ring{  
+  width:88px;  
+  height:88px;  
+  border-radius:50%;  
+  display:grid;  
+  place-items:center;  
+  background:conic-gradient(  
+    #b45cff 0deg,  
+    #7c3aed 0deg,  
+    #251b2d 0deg  
+  );  
+  position:relative  
+}  
+  
+.ring:after{  
+  content:"";  
+  position:absolute;  
+  inset:8px;  
+  border-radius:50%;  
+  background:#100b17  
+}  
+  
+.ring span{  
+  position:relative;  
+  z-index:2;  
+  font-size:20px;  
+  font-weight:900  
+}  
+  
+.check{  
+  color:var(--green);  
+  font-weight:800  
+}  
+  
+.warn{  
+  color:var(--amber);  
+  font-weight:800  
+}  
+  
+.bad{  
+  color:var(--red);  
+  font-weight:800  
+}  
+  
+.bottom{  
+  position:fixed;  
+  bottom:0;  
+  left:50%;  
+  transform:translateX(-50%);  
+  width:min(430px,100%);  
+  height:76px;  
+  background:#0c0811ee;  
+  backdrop-filter:blur(16px);  
+  border-top:1px solid #271d31;  
+  display:grid;  
+  grid-template-columns:repeat(4,1fr);  
+  z-index:10;  
+  padding-bottom:env(safe-area-inset-bottom)  
+}  
+  
+.nav{  
+  border:0;  
+  background:none;  
+  color:#887c92;  
+  font-size:10px  
+}  
+  
+.nav.active{color:#c48bff}  
+  
+.nav i{  
+  display:block;  
+  font-size:20px;  
+  margin-bottom:4px;  
+  font-style:normal  
+}  
+  
+.modal{  
+  position:fixed;  
+  inset:0;  
+  background:#0009;  
+  display:none;  
+  align-items:flex-end;  
+  z-index:30  
+}  
+  
+.modal.show{display:flex}  
+  
+.sheet{  
+  width:min(430px,100%);  
+  margin:auto;  
+  background:#120c19;  
+  border:1px solid #3a2a49;  
+  border-radius:28px 28px 0 0;  
+  padding:22px 18px 30px;  
+  animation:up .25s ease  
+}  
+  
+@keyframes up{  
+  from{transform:translateY(100%)}  
+  to{transform:translateY(0)}  
+}  
+  
+.pulse{  
+  width:96px;  
+  height:96px;  
+  border-radius:50%;  
+  margin:8px auto 18px;  
+  display:grid;  
+  place-items:center;  
+  background:#3b1630;  
+  box-shadow:0 0 0 0 #a83d6a66;  
+  animation:pulse 1.5s infinite  
+}  
+  
+@keyframes pulse{  
+  70%{box-shadow:0 0 0 24px #a83d6a00}  
+}  
+  
+.center{text-align:center}  
+  
+.smallbtn{  
+  border:0;  
+  background:none;  
+  color:#c18bff;  
+  font-weight:700;  
+  cursor:pointer  
+}  
+  
+.toast{  
+  position:fixed;  
+  top:40px;  
+  left:50%;  
+  transform:translateX(-50%) translateY(-20px);  
+  background:#20172a;  
+  border:1px solid #4a3560;  
+  color:white;  
+  padding:11px 15px;  
+  border-radius:12px;  
+  font-size:12px;  
+  opacity:0;  
+  transition:.25s;  
+  z-index:50;  
+  max-width:90%;  
+  text-align:center  
+}  
+  
+.toast.show{  
+  opacity:1;  
+  transform:translateX(-50%) translateY(0)  
+}  
+  
+.map{  
+  height:190px;  
+  border-radius:20px;  
+  overflow:hidden;  
+  position:relative;  
+  background:  
+    linear-gradient(  
+      25deg,  
+      transparent 46%,  
+      #3a2c47 47%,  
+      #3a2c47 49%,  
+      transparent 50%  
+    ),  
+    linear-gradient(  
+      110deg,  
+      transparent 48%,  
+      #2c2238 49%,  
+      #2c2238 51%,  
+      transparent 52%  
+    ),  
+    radial-gradient(  
+      circle at 62% 46%,  
+      #b45cff 0 4px,  
+      transparent 5px  
+    ),  
+    #0d1720  
+}  
+  
+.map:after{  
+  content:"SAFE ROUTE";  
+  position:absolute;  
+  left:15px;  
+  bottom:12px;  
+  background:#171020dd;  
+  padding:7px 10px;  
+  border-radius:9px;  
+  font-size:10px;  
+  color:#d8c8e8  
+}  
+  
+/* 10-second countdown */  
+.countdownWrap{  
+  margin-top:16px;  
+  padding:16px;  
+  border:1px solid #3b2b4c;  
+  border-radius:18px;  
+  background:#171021  
+}  
+  
+.countdownNum{  
+  font-size:46px;  
+  font-weight:900;  
+  color:#b45cff;  
+  line-height:1  
+}  
+  
+.countdownLabel{  
+  font-size:12px;  
+  color:#aaa0b8;  
+  margin-top:5px  
+}  
+</style>  </head>  <body>  <div class="phone">  <div class="status">  
+  <span id="clock">9:41</span>  
+  <span>▮▮▮ Wi-Fi ◉</span>  
+</div>  <header class="appbar">  
+  <div class="brand">  
+    <b>SAAYA</b>  
+    <span>ERROR 404 • SAFETY COMPANION</span>  
+  </div>  
+</header>  <main class="screen">  <!-- HOME -->  <section id="home" class="view active">  <div class="hero">  <span class="pill">  
+<span class="dot"></span>  
+PROTECTION ARMED  
+</span>  <h1>You're protected.</h1>  <p>  
+Say your personal code word when you cannot safely use your phone.  
+SAAYA verifies your voice and starts the emergency protocol.  
+</p>  <div style="height:14px"></div>  <button class="btn" onclick="openTrigger()">  
+🎙️ SAY CODE WORD  
+</button>  </div>  <div class="grid">  <div class="metric">  
+<small>Voice profile</small>  
+<b class="check">✓ Ready</b>  
+</div>  <div class="metric">  
+<small>Location</small>  
+<b class="check">✓ Ready</b>  
+</div>  <div class="metric">  
+<small>Contacts</small>  
+<b>3 saved</b>  
+</div>  <div class="metric">  
+<small>Connectivity</small>  
+<b class="check">Online</b>  
+</div>  </div>  <div class="card">  <div class="row">  
+<div>  
+<div class="title">Emergency architecture</div>  
+<div class="muted">Trigger first • context second</div>  
+</div>  <span class="tag">SAFE BY DESIGN</span>
+
+</div>  <div class="step done">  
+<div class="num">1</div>  
+<div>  
+<b>Personal code word</b>  
+<div class="muted">User chooses a natural phrase.</div>  
+</div>  
+</div>  <div class="step">  
+<div class="num">2</div>  
+<div>  
+<b>Speaker verification</b>  
+<div class="muted">Registered voice is verified.</div>  
+</div>  
+</div>  <div class="step">  
+<div class="num">3</div>  
+<div>  
+<b>Emergency verified</b>  
+<div class="muted">Alert starts immediately.</div>  
+</div>  
+</div>  <div class="step">  
+<div class="num">4</div>  
+<div>  
+<b>Contextual escalation</b>  
+<div class="muted">  
+Signals prioritize response; they never cancel it.  
+</div>  
+</div>  
+</div>  </div>  </section>  <!-- PROTOCOL -->  <section id="protocol" class="view">  <div class="hero">  <span class="pill">  
+<span class="dot"></span>  
+LIVE INCIDENT  
+</span>  <h1>Emergency Protocol</h1>  <p id="protocolSub">  
+Run the complete SAAYA response simulation.  
+</p>  </div>  <div class="card">  <div class="row">  <div>  
+<div class="title">Emergency status</div>  
+<div class="muted">Explicit user trigger</div>  
+</div>  <span id="statusBadge" class="tag">STANDBY</span>
+
+</div>  <div style="height:10px"></div>  <div class="step" id="p1">  
+<div class="num">1</div>  
+<div>  
+<b>Code word detected</b>  
+<div class="muted">Personal phrase matched.</div>  
+</div>  
+</div>  <div class="step" id="p2">  
+<div class="num">2</div>  
+<div>  
+<b>Speaker verified</b>  
+<div class="muted">Voice profile matched.</div>  
+</div>  
+</div>  <div class="step" id="p3">  
+<div class="num">3</div>  
+<div>  
+<b>Emergency verified</b>  
+<div class="muted">Alert is sent immediately.</div>  
+</div>  
+</div>  <div class="step" id="p4">  
+<div class="num">4</div>  
+<div>  
+<b>Location acquired</b>  
+<div class="muted">Location is prepared for sharing.</div>  
+</div>  
+</div>  <div class="step" id="p5">  
+<div class="num">5</div>  
+<div>  
+<b>Context analyzed</b>  
+<div class="muted">Escalation priority is calculated.</div>  
+</div>  
+</div>  </div>  <div class="card" id="scoreCard">  <div class="row">  <div>  
+<div class="title">Contextual escalation</div>  
+<div class="muted">  
+Separate from emergency verification  
+</div>  
+</div>  <span id="levelTag" class="tag">LEVEL 1</span>
+
+</div>  <div class="scoreWrap" style="margin-top:15px">  <div class="ring" id="ring">  
+<span id="score">0</span>  
+</div>  <div>  
+<b id="priorityTitle">Baseline</b>  <div class="muted" id="priorityText">  
+The emergency is already verified.  
+Context only affects escalation priority.  
+</div>  </div>  </div>  <div class="progress">  
+<div class="bar" id="bar"></div>  
+</div>  <div class="muted">  
+Context score is NOT a permission gate.  
+A verified emergency remains active at every level.  
+</div>  </div>  <div class="card">  <div class="title">Context signals</div>  <div style="height:8px"></div>  <label class="row" style="margin:12px 0">  
+<span>🌙 Late/isolated context</span>  
+<input type="checkbox" id="night" onchange="calc()">  
+</label>  <label class="row" style="margin:12px 0">  
+<span>🔊 Distress indicators</span>  
+<input type="checkbox" id="distress" onchange="calc()">  
+</label>  <label class="row" style="margin:12px 0">  
+<span>🏃 Abnormal movement</span>  
+<input type="checkbox" id="movement" onchange="calc()">  
+</label>  <label class="row" style="margin:12px 0">  
+<span>📡 Connectivity instability</span>  
+<input type="checkbox" id="network" onchange="calc()">  
+</label>  <label class="row" style="margin:12px 0">  
+<span>🗺️ Route/location concern</span>  
+<input type="checkbox" id="locationRisk" onchange="calc()">  
+</label>  <div class="muted" style="margin-top:8px">  
+Demo controls simulate contextual signals.  
+They are supporting evidence, not requirements for help.  
+</div>  </div>  </section>  <!-- CONTACTS -->  <section id="contacts" class="view">  <div class="hero">  
+<span class="pill">TRUSTED CIRCLE</span>  <h1>Emergency Contacts</h1>  <p>  
+Authorized people who receive the emergency notification.  
+</p>  
+</div>  <div class="card">  
+<div class="row">  
+<div>  
+<b>Mom — Primary</b>  
+<div class="muted">Emergency contact</div>  
+</div>  <span class="check">READY</span>
+
+</div>  
+</div>  <div class="card">  
+<div class="row">  
+<div>  
+<b>Best Friend</b>  
+<div class="muted">Emergency contact</div>  
+</div>  <span class="check">READY</span>
+
+</div>  
+</div>  <div class="card">  
+<div class="row">  
+<div>  
+<b>Guardian</b>  
+<div class="muted">Emergency contact</div>  
+</div>  <span class="check">READY</span>
+
+</div>  
+</div>  <button class="btn secondary"  
+onclick="toast('Contact setup opened — demo')">
+＋ Add trusted contact
+</button>
+
+</section>  <!-- SAFE ROUTE -->  <section id="route" class="view">  <div class="hero">  <span class="pill">PREVENTIVE SAFETY</span>
+
+<h1>Safe Route</h1>  <p>  
+Plan a route using available safety context before travelling.  
+</p>  </div>  <div class="map"></div>  <div class="card">  <div class="row">  <div>  
+<b>Recommended route</b>  
+<div class="muted">  
+More populated • better-connected path  
+</div>  
+</div>  <span class="check">LOWER RISK</span>
+
+</div>  </div>  <div class="card">  <div class="row">  <div>  
+<b>Alternative route</b>  
+<div class="muted">  
+Fewer safety signals available  
+</div>  
+</div>  <span class="warn">REVIEW</span>
+
+</div>  </div>  </section>  <!-- EVIDENCE -->  <section id="evidence" class="view">  <div class="hero">  <span class="pill">SECURE INCIDENT RECORD</span>
+
+<h1>Evidence</h1>  <p>  
+Protected incident information created after an emergency is verified.  
+</p>  </div>  <div class="card">  <div class="row">  
+<b>Incident timeline</b>  
+<span class="tag">ENCRYPTED DEMO</span>  
+</div>  <div class="step done">  
+<div class="num">✓</div>  
+<div>  
+<b>Code word event</b>  
+<div class="muted">Timestamp recorded</div>  
+</div>  
+</div>  <div class="step done">  
+<div class="num">✓</div>  
+<div>  
+<b>Voice verification</b>  
+<div class="muted">Speaker match recorded</div>  
+</div>  
+</div>  <div class="step done">  
+<div class="num">✓</div>  
+<div>  
+<b>Location event</b>  
+<div class="muted">Location status recorded</div>  
+</div>  
+</div>  <div class="step">  
+<div class="num">4</div>  
+<div>  
+<b>Evidence upload</b>  
+<div class="muted">  
+Production feature requires secure backend.  
+</div>  
+</div>  
+</div>  </div>  </section>  <!-- SETTINGS -->  <section id="settings" class="view">  <div class="hero">  <span class="pill">CONTROL CENTER</span>
+
+<h1>Settings</h1>  <p>  
+Privacy, permissions and emergency preferences.  
+</p>  </div>  <div class="card">  <div class="row" style="margin-bottom:15px">  
+<span>Voice trigger</span>  
+<span class="check">ON</span>  
+</div>  <div class="row" style="margin-bottom:15px">  
+<span>Location access</span>  
+<span class="check">READY</span>  
+</div>  <div class="row" style="margin-bottom:15px">  
+<span>Emergency monitoring</span>  
+<span class="check">ARMED</span>  
+</div>  <div class="row">  
+<span>Privacy-first evidence</span>  
+<span class="check">ON</span>  
+</div>  </div>  <div class="card">  <b>Design principle</b>
+
+<p class="muted">  
+Context can increase priority.  
+It can never cancel a verified emergency.  
+</p>  </div>  </section>  </main>  <!-- NAVIGATION -->  <nav class="bottom">  <button class="nav active" onclick="show('home',this)">  
+<i>⌂</i>Home  
+</button>  <button class="nav" onclick="show('protocol',this)">  
+<i>🚨</i>Protocol  
+</button>  <button class="nav" onclick="show('contacts',this)">  
+<i>👥</i>Contacts  
+</button>  <button class="nav" onclick="show('settings',this)">  
+<i>⚙</i>Settings  
+</button>  </nav>  </div>  <!-- VOICE TRIGGER MODAL -->  <div class="modal" id="trigger">  <div class="sheet">  <div class="center">  <div class="pulse">🎙️</div>  <div class="kicker">  
+VOICE TRIGGER  
+</div>  <h2 style="margin:6px 0">  
+Say your code word  
+</h2>  <p class="muted">  
+Demo phrase: “Mummy, blue file le aana.”  
+</p>  <button class="btn" onclick="beginCountdown()">  
+Start voice detection  
+</button>  <div style="height:10px"></div>  <button class="smallbtn" onclick="closeTrigger()">  
+Cancel  
+</button>  </div>  </div>  </div>  <!-- 10 SECOND COUNTDOWN -->  <div class="modal" id="countdown">  <div class="sheet">  <div class="center">  <div class="pulse">🎙️</div>  <div class="kicker">  
+CODE WORD DETECTED  
+</div>  <h2>  
+Confirm emergency?  
+</h2>  <p class="muted">  
+SAAYA detected your code word.  
+You have 10 seconds to cancel if it was accidental.  
+</p>  <div class="countdownWrap">  <div id="countdownNum" class="countdownNum">  
+10  
+</div>  <div class="countdownLabel">  
+seconds remaining  
+</div>  </div>  <button class="btn danger"  
+onclick="cancelCountdown()">
+✕ CANCEL EMERGENCY
+</button>
+
+</div>  </div>  </div>  <!-- VERIFIED EMERGENCY MODAL -->  <div class="modal" id="emergency">  <div class="sheet">  <div class="center">  <div style="font-size:42px">  
+🚨  
+</div>  <div class="kicker" style="color:#ff7e95">  
+VERIFIED EMERGENCY  
+</div>  <h2>  
+Help protocol started  
+</h2>  <p class="muted">  
+The trigger is verified.  
+Context is now used only to prioritize escalation.  
+</p>  <button class="btn danger"  
+onclick="goProtocol()">
+VIEW RESPONSE
+</button>
+
+</div>  </div>  </div>  <div class="toast" id="toast"></div>  <script>  
+  
+function show(id,el){  
+  
+  document  
+    .querySelectorAll('.view')  
+    .forEach(v=>v.classList.remove('active'));  
+  
+  document  
+    .getElementById(id)  
+    .classList.add('active');  
+  
+  document  
+    .querySelectorAll('.nav')  
+    .forEach(n=>n.classList.remove('active'));  
+  
+  if(el) el.classList.add('active');  
+  
+  window.scrollTo(0,0);  
+}  
+  
+  
+let countdownTimer=null;  
+let countdownValue=10;  
+  
+  
+function openTrigger(){  
+  
+  document  
+    .getElementById('trigger')  
+    .classList.add('show');  
+  
+}  
+  
+  
+function closeTrigger(){  
+  
+  document  
+    .getElementById('trigger')  
+    .classList.remove('show');  
+  
+}  
+  
+  
+function toast(t){  
+  
+  let x=document.getElementById('toast');  
+  
+  x.textContent=t;  
+  
+  x.classList.add('show');  
+  
+  setTimeout(  
+    ()=>x.classList.remove('show'),  
+    2200  
+  );  
+  
+}  
+  
+  
+function setDone(id){  
+  
+  document  
+    .getElementById(id)  
+    .classList.add('done','active');  
+  
+}  
+  
+  
+/* 10 SECOND COUNTDOWN */  
+  
+function beginCountdown(){  
+  
+  closeTrigger();  
+  
+  countdownValue=10;  
+  
+  document  
+    .getElementById('countdownNum')  
+    .textContent=countdownValue;  
+  
+  document  
+    .getElementById('countdown')  
+    .classList.add('show');  
+  
+  clearInterval(countdownTimer);  
+  
+  countdownTimer=setInterval(()=>{  
+  
+    countdownValue--;  
+  
+    document  
+      .getElementById('countdownNum')  
+      .textContent=countdownValue;  
+  
+  
